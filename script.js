@@ -81,6 +81,7 @@ function inception(){
         $(".form12").addClass("future");
     }else if(currentTime.isSame(timeBlock4)){
         $(".form12").addClass("present");
+        console.log(currentTime)
     };
     timeBlock5 = moment().startOf('day').add(13, "hours");
     currentTime = currentTime.startOf("hour");
@@ -127,4 +128,12 @@ function inception(){
     }else if(currentTime.isSame(timeBlock9)){
         $(".form5").addClass("present");
     };
-};
+}
+inception();
+console.log(inception)
+
+
+// $(".form12").click(function(){
+//     alert("Take a lunch break, it is " + [currentTime] + " !")
+//     console.log(currentTime)
+// }) stupid
