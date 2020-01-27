@@ -1,14 +1,13 @@
 $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
 
 var currentTime = moment();
-//rounds it to the nearest hour
+
 currentTime = currentTime.startOf("hour");
-//
+
 var pastTime = moment().startOf('day').add(9, "hours");
 console.log(currentTime);
 
-//if I have time i'll make this code DRY
-//timeblocks
+
 var timeBlock1 = pastTime.add(0, "h");
 timeBlock1 = timeBlock1.format('hh:mm A');
 $(".block1").text(timeBlock1);
@@ -123,7 +122,7 @@ function inception(){
     currentTime = currentTime.startOf("hour");
     if(currentTime.isAfter(timeBlock9)){
         $(".form5").addClass("past");
-        // localStorage.clear();// let's see if this works tomorrow
+        localStorage.clear();
     }else if(currentTime.isBefore(timeBlock9)){
         $(".form5").addClass("future");
     }else if(currentTime.isSame(timeBlock9)){
@@ -146,20 +145,3 @@ $(".saveBtn").click(function(){
     localStorage.setItem(listInput,formInput);
     console.log("@@@@@")   
 })
-
-
-// function deleteStor(){
-//     if(currentTime.isAfter(timeBlock9)){
-//         localStorage.clear()
-//     }
-// }
-
-// function deleteStor(){
-//     if([currentTime].isAfter()){
-//         localStorage.clear();
-//     }
-// }
-
-// setTimeout(function(){
-//     localStorage.removeItem()
-// })
