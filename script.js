@@ -123,6 +123,7 @@ function inception(){
     currentTime = currentTime.startOf("hour");
     if(currentTime.isAfter(timeBlock9)){
         $(".form5").addClass("past");
+        // localStorage.clear();// let's see if this works tomorrow
     }else if(currentTime.isBefore(timeBlock9)){
         $(".form5").addClass("future");
     }else if(currentTime.isSame(timeBlock9)){
@@ -132,8 +133,33 @@ function inception(){
 inception();
 console.log(inception)
 
+var h = [9, 10, 11, 12, 1, 2, 3, 4, 5];
+for (var i = 0; i < h.length; i++){
+    var hourData = localStorage.getItem(h[i]);
+    $(".form" + h[i]).val(hourData);
+}
 
-// $(".form12").click(function(){
-//     alert("Take a lunch break, it is " + [currentTime] + " !")
-//     console.log(currentTime)
-// }) stupid
+$(".saveBtn").click(function(){
+    event.preventDefault();
+    var formInput = $(this).siblings(".form-control").val();
+    var listInput = $(this).parent().data("hour");
+    localStorage.setItem(listInput,formInput);
+    console.log("@@@@@")   
+})
+
+
+// function deleteStor(){
+//     if(currentTime.isAfter(timeBlock9)){
+//         localStorage.clear()
+//     }
+// }
+
+// function deleteStor(){
+//     if([currentTime].isAfter()){
+//         localStorage.clear();
+//     }
+// }
+
+// setTimeout(function(){
+//     localStorage.removeItem()
+// })
