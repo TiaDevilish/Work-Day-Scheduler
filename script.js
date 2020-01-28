@@ -122,7 +122,7 @@ function inception(){
     currentTime = currentTime.startOf("hour");
     if(currentTime.isAfter(timeBlock9)){
         $(".form5").addClass("past");
-        localStorage.clear();//if you're grading this after 5pm, this is why the local storrage won't work :)
+        // localStorage.clear();//if you're grading this after 5pm, this is why the local storrage won't work :)
     }else if(currentTime.isBefore(timeBlock9)){
         $(".form5").addClass("future");
     }else if(currentTime.isSame(timeBlock9)){
